@@ -1,11 +1,6 @@
 /* ============================================================
    NOTECAST AI — UPLOAD ADAPTER
    ------------------------------------------------------------
-   Connects the existing "Start learning" UI to the existing
-   AWS upload logic.
-
-   DO NOT replace the rest of app.js.
-   DO NOT change the AWS backend.
    ============================================================ */
 
 (function prepareNoteCastUploadUI() {

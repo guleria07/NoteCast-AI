@@ -69,9 +69,7 @@ Users can upload their study material and process it through an AWS-powered pipe
                     │ NoteCast AI      │
                     │    Dashboard     │
                     └──────────────────┘
----
-
-☁️ AWS Services Used
+ AWS Services Used
 Amazon S3
 
 Used for storing uploaded documents and generated learning content.
@@ -95,9 +93,8 @@ Converts generated text into speech for audio-based learning.
 AWS Lambda
 
 Used as part of the backend processing workflow to execute document-processing logic.
-
-🔄 How It Works
-1. User uploads a PDF
+                   🔄 How It Works
+                   1. User uploads a PDF
           ↓
 2. Frontend requests a presigned S3 upload URL
           ↓
@@ -114,6 +111,7 @@ Used as part of the backend processing workflow to execute document-processing l
 8. Generated results are stored in AWS
           ↓
 9. NoteCast AI dashboard displays the results
+
 🖥️ Frontend
 
 The frontend is built using:
@@ -196,3 +194,18 @@ B.Tech Computer Science Engineering
 
 
 ---
+
+## Step 3 — Save it
+
+Press:
+
+**Ctrl + S**
+
+That's it for the file.
+
+### Step 4 — Push README to GitHub
+
+Open your VS Code terminal and run:
+
+```bash
+git add README.md
