@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>NoteCast AI</title>
+
+    <meta
+        name="description"
+        content="Turn your notes into knowledge with NoteCast AI."
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+    <!-- =========================================================
+         NAVBAR
+    ========================================================== -->
+
+    <header class="navbar">
+
+        <div class="navbar-inner">
+
+            <a
+                href="#home"
+                class="logo"
+            >
+                <span class="logo-mark">N</span>
+
+                <span class="logo-name">
+                    NoteCast <span>AI</span>
+                </span>
+            </a>
+
+            <!-- navbar-nav added so current app.js can find navigation -->
+            <nav class="nav-links navbar-nav">
+
+                <a href="#home">
+                    Home
+                </a>
+
+                <a href="#workspace">
+                    How it works
+                </a>
+
+                <a href="#about">
+                    Features
+                </a>
+
+            </nav>
+
+            <div class="nav-actions">
+
+                <a
+                    href="#about"
+                    class="signin-link"
+                >
+                    Sign in
+                </a>
+
+                <button
+                    type="button"
+                    id="uploadButton"
+                    class="nav-start-button"
+                >
+                    Start learning
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         MAIN
+    ========================================================== -->
+
+    <main>
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section
+            id="home"
+            class="hero"
+        >
+
+            <div class="hero-inner">
+
+                <!-- LEFT SIDE -->
+
+                <div class="hero-content">
+
+                    <div class="hero-label">
+                        AI LEARNING PLATFORM
+                    </div>
+
+                    <h1>
+                        Turn your notes into
+                        <span>knowledge.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Upload your notes or PDF and let NoteCast AI
+                        transform them into summaries, key points,
+                        flashcards, quizzes and an AI-generated podcast.
+                    </p>
+
+
+                    <!-- Hidden file picker -->
+
+                    <input
+                        type="file"
+                        id="fileInput"
+                        accept=".pdf,application/pdf"
+                        hidden
+                    >
+
+
+                    <div class="hero-actions">
+
+                        <button
+                            type="button"
+                            id="heroStartButton"
+                            class="primary-button"
+                        >
+                            Start learning
+                            <span>→</span>
+                        </button>
+
+                        <a
+                            href="#workspace"
+                            class="secondary-link"
+                        >
+                            See how it works
+                        </a>
+
+                    </div>
+
+
+                    <div class="supported-files">
+
+                        <span>PDF</span>
+                        <span>•</span>
+                        <span>PNG</span>
+                        <span>•</span>
+                        <span>JPG</span>
+                        <span>•</span>
+                        <span>TXT</span>
+                        <span>•</span>
+                        <span>UP TO 10 MB</span>
+
+                    </div>
+
+
+                    <div
+                        id="selectedFile"
+                        class="selected-file hidden"
+                    >
+                    </div>
+
+                    <!-- Small status element used by app.js -->
+
+                    <div
+                        id="status"
+                        class="upload-status"
+                    ></div>
+
+                </div>
+
+
+                <!-- RIGHT SIDE:
+                     PROCESSING PIPELINE
+                -->
+
+                <div class="pipeline-wrapper">
+
+                    <div class="pipeline-card">
+
+                        <div class="pipeline-header">
+
+                            <span class="pipeline-label">
+                                PROCESSING PIPELINE
+                            </span>
+
+                        </div>
+
+
+                        <div class="pipeline-steps">
+
+                            <div class="pipeline-step">
+
+                                <div class="step-name">
+                                    Document extraction
+                                </div>
+
+                                <div class="step-status completed">
+                                    COMPLETED
+                                </div>
+
+                            </div>
+
+
+                            <div class="pipeline-step">
+
+                                <div class="step-name">
+                                    Summary generation
+                                </div>
+
+                                <div class="step-status ready">
+                                    READY
+                                </div>
+
+                            </div>
+
+
+                            <div class="pipeline-step">
+
+                                <div class="step-name">
+                                    Quiz generation
+                                </div>
+
+                                <div class="step-status ready">
+                                    READY
+                                </div>
+
+                            </div>
+
+
+                            <div class="pipeline-step">
+
+                                <div class="step-name">
+                                    Flashcard generation
+                                </div>
+
+                                <div class="step-status ready">
+                                    READY
+                                </div>
+
+                            </div>
+
+
+                            <div class="pipeline-step">
+
+                                <div class="step-name">
+                                    Podcast script
+                                </div>
+
+                                <div class="step-status ready">
+                                    READY
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="audio-preview">
+
+                            <div class="audio-preview-icon">
+                                ♪
+                            </div>
+
+                            <div class="audio-preview-info">
+
+                                <strong>
+                                    Audio lesson
+                                </strong>
+
+                                <span>
+                                    Starts when ready
+                                </span>
+
+                            </div>
+
+                            <div class="audio-bars">
+
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             UPLOAD STATUS
+        ====================================================== -->
+
+        <section
+            id="uploadStatusSection"
+            class="upload-status-section"
+        >
+
+            <div
+                id="statusCard"
+                class="status-card hidden"
+            >
+
+                <div
+                    id="statusIcon"
+                    class="status-icon"
+                >
+                    ⏳
+                </div>
+
+                <div class="status-content">
+
+                    <strong id="statusTitle">
+                        Processing your document
+                    </strong>
+
+                    <p id="statusMessage">
+                        NoteCast AI is preparing your learning material.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             LEARNING WORKSPACE
+        ====================================================== -->
+
+        <section
+            id="workspace"
+            class="workspace"
+        >
+
+            <div class="workspace-container">
+
+
+                <!-- WORKSPACE HEADER -->
+
+                <div class="workspace-header">
+
+                    <div class="workspace-heading">
+
+                        <div class="workspace-badge">
+                            LEARNING WORKSPACE
+                        </div>
+
+                        <h2>
+                            Your Learning Dashboard
+                        </h2>
+
+                        <p>
+                            Everything generated from your document,
+                            organized in one place.
+                        </p>
+
+                    </div>
+
+
+                    <div class="document-name">
+
+                        <span class="document-icon">
+                            📄
+                        </span>
+
+                        <span id="documentTitle">
+                            Your document
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROCESSING STATE -->
+
+                <div
+                    id="workspaceProcessing"
+                    class="workspace-processing hidden"
+                >
+
+                    <div class="status-icon">
+                        ⏳
+                    </div>
+
+                    <div>
+                        <strong>
+                            Processing your document
+                        </strong>
+
+                        <p id="workspaceProcessingText">
+                            Preparing your learning material...
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- WORKSPACE STATUS -->
+
+                <div class="status-card workspace-status">
+
+                    <div class="status-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Learning workspace ready
+                        </strong>
+
+                        <p>
+                            Your AI-generated learning material
+                            will appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     DASHBOARD TABS
+                ================================================== -->
+
+                <div
+                    class="content-tabs"
+                    role="tablist"
+                >
+
+                    <button
+                        type="button"
+                        class="tab tab-button active"
+                        data-tab="summary"
+                        data-section="summary"
+                        role="tab"
+                        aria-selected="true"
+                    >
+                        Summary
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="tab tab-button"
+                        data-tab="keypoints"
+                        data-section="keypoints"
+                        role="tab"
+                        aria-selected="false"
+                    >
+                        Key Points
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="tab tab-button"
+                        data-tab="flashcards"
+                        data-section="flashcards"
+                        role="tab"
+                        aria-selected="false"
+                    >
+                        Flashcards
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="tab tab-button"
+                        data-tab="quiz"
+                        data-section="quiz"
+                        role="tab"
+                        aria-selected="false"
+                    >
+                        Quiz
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="tab tab-button"
+                        data-tab="podcast"
+                        data-section="podcast"
+                        role="tab"
+                        aria-selected="false"
+                    >
+                        🎧 Podcast
+                    </button>
+
+                </div>
+
+
+                <!-- =================================================
+                     SUMMARY
+                ================================================== -->
+
+                <div
+                    class="panel content-section active"
+                    id="summary"
+                >
+
+                    <div class="content-card large-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <span class="card-label">
+                                    AI SUMMARY
+                                </span>
+
+                                <h3>
+                                    Your document at a glance
+                                </h3>
+
+                            </div>
+
+                            <span class="card-icon">
+                                📝
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            id="summaryText"
+                            class="summary-text"
+                        >
+                            <p class="placeholder-text">
+                                Your AI-generated summary will appear here
+                                after your document has been processed.
+                            </p>
+
+                            <div class="placeholder-lines">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div class="short"></div>
+                            </div>
+                        </div>
+
+
+                        <!-- Explanation generated by Bedrock -->
+
+                        <div
+                            id="explanationCard"
+                            class="content-card explanation-card hidden"
+                        >
+
+                            <div class="card-header">
+
+                                <div>
+
+                                    <span class="card-label">
+                                        SIMPLE EXPLANATION
+                                    </span>
+
+                                    <h3>
+                                        Understand the topic
+                                    </h3>
+
+                                </div>
+
+                                <span class="card-icon">
+                                    ✣
+                                </span>
+
+                            </div>
+
+                            <p id="explanationText"></p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     KEY POINTS
+                ================================================== -->
+
+                <div
+                    class="panel content-section"
+                    id="keypoints"
+                >
+
+                    <div class="content-card large-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <span class="card-label">
+                                    KEY POINTS
+                                </span>
+
+                                <h3>
+                                    Important concepts
+                                </h3>
+
+                            </div>
+
+                            <span class="card-icon">
+                                💡
+                            </span>
+
+                        </div>
+
+
+                        <!-- IMPORTANT:
+                             app.js writes generated key points here.
+                        -->
+
+                        <div
+                            id="keyPointList"
+                            class="key-point-list"
+                        >
+
+                            <div class="key-point">
+
+                                <div class="key-point-number">
+                                    01
+                                </div>
+
+                                <div class="key-point-text">
+                                    Important concepts extracted from
+                                    your document will appear here.
+                                </div>
+
+                            </div>
+
+
+                            <div class="key-point">
+
+                                <div class="key-point-number">
+                                    02
+                                </div>
+
+                                <div class="key-point-text">
+                                    Key information will be organized
+                                    into easy-to-understand points.
+                                </div>
+
+                            </div>
+
+
+                            <div class="key-point">
+
+                                <div class="key-point-number">
+                                    03
+                                </div>
+
+                                <div class="key-point-text">
+                                    AI will highlight information useful
+                                    for learning and revision.
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     FLASHCARDS
+                ================================================== -->
+
+                <div
+                    class="panel content-section"
+                    id="flashcards"
+                >
+
+                    <div class="content-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <span class="card-label">
+                                    FLASHCARDS
+                                </span>
+
+                                <h3>
+                                    Learn through active recall
+                                </h3>
+
+                            </div>
+
+                            <span class="card-icon">
+                                🧠
+                            </span>
+
+                        </div>
+
+
+                        <!-- app.js replaces this content -->
+
+                        <div
+                            id="flashcardContainer"
+                        >
+
+                            <div class="flashcard">
+
+                                <span class="flashcard-number">
+                                    CARD 01
+                                </span>
+
+                                <h3>
+                                    Your AI-generated question
+                                    will appear here.
+                                </h3>
+
+                                <div class="flashcard-divider"></div>
+
+                                <p>
+                                    The answer will appear here when
+                                    the flashcard is ready.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- IMPORTANT:
+                             These IDs are required by app.js.
+                        -->
+
+                        <div
+                            id="flashcardControls"
+                            class="flashcard-controls"
+                        >
+
+                            <button
+                                type="button"
+                                id="previousCard"
+                                class="secondary-button"
+                            >
+                                ← Previous
+                            </button>
+
+
+                            <span id="cardCounter">
+                                1 / 0
+                            </span>
+
+
+                            <button
+                                type="button"
+                                id="nextCard"
+                                class="primary-button"
+                            >
+                                Next →
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     QUIZ
+                ================================================== -->
+
+                <div
+                    class="panel content-section"
+                    id="quiz"
+                >
+
+                    <div class="content-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <span class="card-label">
+                                    AI QUIZ
+                                </span>
+
+                                <h3>
+                                    Test your understanding
+                                </h3>
+
+                            </div>
+
+                            <span class="card-icon">
+                                🎯
+                            </span>
+
+                        </div>
+
+
+                        <!-- app.js generates the complete quiz here -->
+
+                        <div id="quizContainer">
+
+                            <div class="quiz-question">
+
+                                <span class="question-number">
+                                    QUESTION 01
+                                </span>
+
+                                <h3>
+                                    Your AI-generated quiz question
+                                    will appear here.
+                                </h3>
+
+                            </div>
+
+
+                            <div class="quiz-options">
+
+                                <button
+                                    type="button"
+                                    class="quiz-option"
+                                >
+                                    <span>A</span>
+                                    Answer option one
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="quiz-option"
+                                >
+                                    <span>B</span>
+                                    Answer option two
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="quiz-option"
+                                >
+                                    <span>C</span>
+                                    Answer option three
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="quiz-option"
+                                >
+                                    <span>D</span>
+                                    Answer option four
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     PODCAST
+                ================================================== -->
+
+                <div
+                    class="panel content-section"
+                    id="podcast"
+                >
+
+                    <div class="content-card podcast-section">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <span class="card-label">
+                                    AI PODCAST
+                                </span>
+
+                                <h3>
+                                    Listen and learn
+                                </h3>
+
+                            </div>
+
+                            <span class="card-icon">
+                                🎧
+                            </span>
+
+                        </div>
+
+
+                        <div class="podcast-player">
+
+                            <div class="podcast-cover">
+                                🎙️
+                            </div>
+
+
+                            <div class="podcast-info">
+
+                                <h3>
+                                    Your AI Learning Podcast
+                                </h3>
+
+
+                                <p id="podcastStatus">
+                                    Your generated audio lesson
+                                    will appear here.
+                                </p>
+
+
+                                <!--
+                                    This is the actual audio element
+                                    used by app.js.
+
+                                    When AWS/Polly returns the audio URL,
+                                    app.js puts it into this element.
+                                -->
+
+                                <audio
+                                    id="podcastAudio"
+                                    class="audio-player"
+                                    controls
+                                ></audio>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             FEATURES
+        ====================================================== -->
+
+        <section
+            id="about"
+            class="features"
+        >
+
+            <div class="features-container">
+
+                <div class="section-heading">
+
+                    <div class="section-badge">
+                        YOUR LEARNING TOOLKIT
+                    </div>
+
+                    <h2>
+                        Five ways to study the same set of notes.
+                    </h2>
+
+                    <p>
+                        One document. Multiple ways to understand,
+                        revise and remember.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-grid">
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+                            ▣
+                        </div>
+
+                        <h3>
+                            Smart Summaries
+                        </h3>
+
+                        <p>
+                            Condense overviews with key points
+                            and the concepts that matter most.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+                            ✣
+                        </div>
+
+                        <h3>
+                            Simple Explanations
+                        </h3>
+
+                        <p>
+                            Understand difficult material in
+                            learner-friendly language with useful examples.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+                            ☷
+                        </div>
+
+                        <h3>
+                            AI Quizzes
+                        </h3>
+
+                        <p>
+                            Four-option multiple-choice questions
+                            generated to test your understanding.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+                            ≋
+                        </div>
+
+                        <h3>
+                            Flashcards
+                        </h3>
+
+                        <p>
+                            Flip through auto-generated cards
+                            straight from your own notes.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+                            ≋
+                        </div>
+
+                        <h3>
+                            Audio Lessons
+                        </h3>
+
+                        <p>
+                            Podcast-style scripts and audio lessons
+                            synthesized from your material.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-logo">
+
+                <span class="logo-mark">
+                    N
+                </span>
+
+                <span>
+                    NoteCast <span>AI</span>
+                </span>
+
+            </div>
+
+
+            <p>
+                Turn information into understanding.
+            </p>
+
+
+            <span class="copyright">
+                © 2026 NoteCast AI
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script src="app.js"></script>
+
+</body>
+</html>
