@@ -194,18 +194,3 @@ B.Tech Computer Science Engineering
 
 
 ---
-
-## Step 3 — Save it
-
-Press:
-
-**Ctrl + S**
-
-That's it for the file.
-
-### Step 4 — Push README to GitHub
-
-Open your VS Code terminal and run:
-
-```bash
-git add README.md
