@@ -71,31 +71,31 @@ Users can upload their study material and process it through an AWS-powered pipe
                     └──────────────────┘
 ```
 ## AWS Services Used
-Amazon S3
+-> Amazon S3
 
 Used for storing uploaded documents and generated learning content.
 
-Amazon API Gateway
+-> Amazon API Gateway
 
 Provides the API endpoint used by the frontend to communicate with the AWS backend.
 
-Amazon Textract
+-> Amazon Textract
 
 Extracts text from uploaded documents.
 
-Amazon Bedrock
+-> Amazon Bedrock
 
 Processes extracted content using foundation models to generate learning material such as summaries, explanations, flashcards and quizzes.
 
-Amazon Polly
+-> Amazon Polly
 
 Converts generated text into speech for audio-based learning.
 
-AWS Lambda
+-> AWS Lambda
 
 Used as part of the backend processing workflow to execute document-processing logic.
-                   🔄 How It Works
-                   1. User uploads a PDF
+🔄 How It Works
+ 1. User uploads a PDF
           ↓
 2. Frontend requests a presigned S3 upload URL
           ↓
