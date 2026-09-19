@@ -69,6 +69,7 @@ Users can upload their study material and process it through an AWS-powered pipe
                     │ NoteCast AI      │
                     │    Dashboard     │
                     └──────────────────┘
+```
 ## AWS Services Used
 Amazon S3
 
