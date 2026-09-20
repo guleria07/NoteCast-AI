@@ -1,4 +1,4 @@
-name: NoteCast AI CI
+name: NoteCast AI CI/CD
 
 on:
   push:
@@ -10,6 +10,10 @@ on:
       - main
 
   workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
   validate:
@@ -35,3 +39,26 @@ jobs:
           echo "app.js found"
           echo "README.md found"
           echo "CI validation successful!"
+
+  deploy:
+    name: Deploy Frontend to AWS S3
+    needs: validate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v6.3.0
+        with:
+          role-to-assume: arn:aws:iam::696223520662:role/NoteCastFrontendDeployPolicy
+          aws-region: ap-south-1
+
+      - name: Deploy frontend to S3
+        run: |
+          aws s3 sync . s3://notecast-ai-frontend-2026 \
+            --delete \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude "README.md"
