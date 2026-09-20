@@ -84,7 +84,9 @@ Users can upload their study material and process it through an AWS-powered pipe
                               ┌──────────────────────┐
                               │   NoteCast AI        │
                               │      Dashboard       │
-                              └──────────────────────┘
+
+
+---                              └──────────────────────┘
 Frontend Deployment Architecture
 
 The frontend is deployed separately from the backend processing bucket.
